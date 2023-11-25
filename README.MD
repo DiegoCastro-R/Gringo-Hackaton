@@ -17,3 +17,17 @@
 
 		make fclean
 > Use make fclean para limpar tudo com relação ao projeto incluindo os volumes com banco de dados e arquivos criados.
+
+# Manipular contas com Metamask
+> Após subir é possivel ver a chave privada de até 10 contas basta acessar o log do container ganache usando:
+
+		docker logs ganache
+
+ref para configurar conta metamask: https://www.geeksforgeeks.org/how-to-set-up-ganche-with-metamask/
+
+# Ambiente de desenvolvimento de Smart Contract
+> Para acessar o ambiente de desenvolvimento de contratos basta usar o seguinte comando:
+		
+		docker exec -it truffle bash
+
+ref: https://trufflesuite.com/docs/truffle/quickstart/
