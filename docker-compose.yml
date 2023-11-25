@@ -1,0 +1,39 @@
+version: '3'
+
+networks:
+  backend:
+
+services:
+  truffle:
+    container_name: truffle
+    image: truffle
+    restart: always
+    build:
+      context: requirements/truffle
+    volumes:
+      - truffle-volumes:/myproject
+    networks:
+      - backend
+    depends_on:
+      - ganache
+    ports:
+      - 7545:7545
+  
+  ganache:
+    container_name: ganache
+    image: ganache
+    restart: always
+    build:
+      context: requirements/ganache
+    networks:
+      - backend
+    ports:
+      - 8545:8545
+
+volumes:
+  truffle-volumes:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/truffle
