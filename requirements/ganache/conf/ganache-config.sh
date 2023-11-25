@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ganache --host 0.0.0.0
+ganache --server.host="0.0.0.0" --server.port=8545 --database.dbPath=/ganache-server/ganache-volume

@@ -1,9 +1,17 @@
 #!/bin/sh
 
-mkdir -p app
-cd app
-truffle init
-cp ../truffle-config.js app -y
-truffle compile
+sleep 3
 
-truffle dashboard --port 7545 --host 0.0.0.0
+if [ -d "/app" ]; then
+	echo "app exist"
+else
+	mkdir -p app
+	cd app
+	truffle unbox metacoin .
+	cp ../truffle-config.js . 
+	truffle compile
+	truffle migrate --network development
+fi
+
+# truffle watch
+tail -f /dev/null

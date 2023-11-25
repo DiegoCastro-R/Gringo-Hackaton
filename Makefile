@@ -1,6 +1,6 @@
 COMPOSE = docker-compose.yml
 IMAGES = $(docker ps -qa)
-VOLUMES = $(addprefix $(PWD), /volumes/truffle)
+VOLUMES = $(addprefix $(PWD), /volumes/truffle /volumes/ganache)
 
 all: build up
 
@@ -20,5 +20,7 @@ clean:
 fclean: clean
 	rm -rf $(VOLUMES)
 	docker system prune --all -f
+
+re: fclean all
 
 .PHONY: all build up down fclean

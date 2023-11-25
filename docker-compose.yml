@@ -29,6 +29,8 @@ services:
       - backend
     ports:
       - 8545:8545
+    volumes:
+      - ganache-volume:/ganache-server/ganache-volume
 
 volumes:
   truffle-volumes:
@@ -37,3 +39,10 @@ volumes:
       type: none
       o: bind
       device: ./volumes/truffle
+
+  ganache-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./volumes/ganache
