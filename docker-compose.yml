@@ -10,14 +10,22 @@ services:
     restart: always
     build:
       context: requirements/truffle
+    environment:
+      INFURA_PROJECT_ID: "${INFURA_PROJECT_ID}"
+      MNEMONIC: "${MNEMONIC}"
+      CHAIN_ID: "${CHAIN_ID}"
+      NETWORK_ID: "${NETWORK_ID}"
+      DEV_HOST: "${DEV_HOST}"
+      DEV_PORT: "${DEV_PORT}"
+      TEST_NETWORK: "${TEST_NETWORK}"
     volumes:
       - truffle-volumes:/myproject
+    secrets:
+      - truffle_env
     networks:
       - backend
     depends_on:
       - ganache
-    ports:
-      - 7545:7545
   
   ganache:
     container_name: ganache
@@ -31,6 +39,31 @@ services:
       - 8545:8545
     volumes:
       - ganache-volume:/ganache-server/ganache-volume
+
+  react:
+    container_name: react
+    image: react
+    restart: always
+    build: 
+      context: requirements/react
+    environment:
+      CONTRACT_ADDRESS: "${CONTRACT_ADDRESS}"
+    networks:
+      - backend
+    ports:
+      - 3000:3000
+    volumes:
+      - react-volume:/webapp
+    depends_on:
+      - truffle
+    secrets:
+      - react_env
+
+secrets:
+  react_env:
+    file: .env.front
+  truffle_env:
+    file: .env.truffle
 
 volumes:
   truffle-volumes:
@@ -46,3 +79,10 @@ volumes:
       type: none
       o: bind
       device: ./volumes/ganache
+  
+  react-volume:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./requirements/react/src

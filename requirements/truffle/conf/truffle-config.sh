@@ -10,8 +10,8 @@ else
 	truffle unbox metacoin .
 	cp ../truffle-config.js . 
 	truffle compile
-	truffle migrate --network development
 fi
+truffle migrate --network $TEST_NETWORK
 
 # truffle watch
 tail -f /dev/null

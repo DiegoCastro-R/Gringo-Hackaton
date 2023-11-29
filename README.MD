@@ -1,6 +1,5 @@
 # Minimal Config for Truffle and Ganache
 
-
 # Como usar:
 
 		make
@@ -31,3 +30,24 @@ ref para configurar conta metamask: https://www.geeksforgeeks.org/how-to-set-up-
 		docker exec -it truffle bash
 
 ref: https://trufflesuite.com/docs/truffle/quickstart/
+
+# Declaração do arquivos de variavel de ambiente
+> Breve descrição do padrão de declaração das variaveis em cada arquivo de segredos.
+
+## .env.front
+		/* Endereço do contrato */
+		CONTRACT_ADDRESS=<Contract Address>
+
+## .env.truffle
+		# Config goerli
+		INFURA_PROJECT_ID="https://sepolia.infura.io/v3/<Your-API-Key>"
+		MNEMONIC="<Your-MetaMask-Secret-Recovery-Phrase>"
+		CHAIN_ID="<420>"
+		NETWORK_ID="<5>"
+
+		# Config development
+		DEV_HOST="<ganache docker name>"
+		DEV_PORT="<port expose on ganache docker-compose>"
+
+		# Config deploy net
+		TEST_NETWORK="<network for migrate>" // (development or goerli)
