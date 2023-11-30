@@ -1,17 +1,6 @@
 #!/bin/sh
 
-sleep 3
-
-if [ -d "/app" ]; then
-	echo "app exist"
-else
-	mkdir -p app
-	cd app
-	truffle unbox metacoin .
-	cp ../truffle-config.js . 
-	truffle compile
-fi
+npm install @truffle/hdwallet-provider@latest
+truffle compile
 truffle migrate --network $TEST_NETWORK
-
-# truffle watch
-tail -f /dev/null
+truffle watch

@@ -34,11 +34,15 @@ ref: https://trufflesuite.com/docs/truffle/quickstart/
 # Declaração do arquivos de variavel de ambiente
 > Breve descrição do padrão de declaração das variaveis em cada arquivo de segredos.
 
-## .env.front
+## Configuração do Arquivo dot env
+
+### Variaveis do React:
+
 		/* Endereço do contrato */
 		CONTRACT_ADDRESS=<Contract Address>
 
-## .env.truffle
+### Variaveis do truffle:
+
 		# Config goerli
 		INFURA_PROJECT_ID="https://sepolia.infura.io/v3/<Your-API-Key>"
 		MNEMONIC="<Your-MetaMask-Secret-Recovery-Phrase>"

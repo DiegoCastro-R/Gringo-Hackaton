@@ -3,6 +3,10 @@ version: '3'
 networks:
   backend:
 
+secrets:
+  secrets_env:
+    file: ./.env
+
 services:
   truffle:
     container_name: truffle
@@ -21,7 +25,7 @@ services:
     volumes:
       - truffle-volumes:/myproject
     secrets:
-      - truffle_env
+      - secrets_env
     networks:
       - backend
     depends_on:
@@ -57,13 +61,7 @@ services:
     depends_on:
       - truffle
     secrets:
-      - react_env
-
-secrets:
-  react_env:
-    file: .env.front
-  truffle_env:
-    file: .env.truffle
+      - secrets_env
 
 volumes:
   truffle-volumes:
@@ -85,4 +83,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./requirements/react/src
+      device: ./requirements/react/srcs

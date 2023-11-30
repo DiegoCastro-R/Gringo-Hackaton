@@ -13,7 +13,7 @@ const Fetch = ({ state, account }) => {
 		};
 
 		contract && fetchNumber();
-	}, [contract]);
+	}, [contract, account]);
 
 	return (
 		<>
