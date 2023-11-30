@@ -17,6 +17,7 @@ services:
     environment:
       INFURA_PROJECT_ID: "${INFURA_PROJECT_ID}"
       MNEMONIC: "${MNEMONIC}"
+      NETWORK_URL: "${NETWORK_URL}"
       CHAIN_ID: "${CHAIN_ID}"
       NETWORK_ID: "${NETWORK_ID}"
       DEV_HOST: "${DEV_HOST}"

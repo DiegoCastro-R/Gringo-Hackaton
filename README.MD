@@ -46,6 +46,7 @@ ref: https://trufflesuite.com/docs/truffle/quickstart/
 		# Config goerli
 		INFURA_PROJECT_ID="https://sepolia.infura.io/v3/<Your-API-Key>"
 		MNEMONIC="<Your-MetaMask-Secret-Recovery-Phrase>"
+		NETWORK_URL="<test net URL>"
 		CHAIN_ID="<420>"
 		NETWORK_ID="<5>"
 

@@ -4,6 +4,7 @@ const infuraProjectId = process.env["INFURA_PROJECT_ID"];
 const mnemonic = process.env["MNEMONIC"];
 const network_id = process.env["NETWORK_ID"];
 const chain_id = process.env["CHAIN_ID"];
+const test_network = process.env["NETWORK_URL"];
 
 const host = process.env["DEV_HOST"];
 const port = process.env["DEV_PORT"];
@@ -17,11 +18,15 @@ module.exports = {
 	  },
 
 	  goerli: {
-	    provider: () => new HDWalletProvider(mnemonic, 'https://goerli.infura.io/v3/' + infuraProjectId),
-	    network_id: network_id,
-	    chain_id: chain_id,
+		provider: () => new HDWalletProvider(mnemonic, test_network + infuraProjectId),
+		network_id: network_id,
+		chain_id: chain_id,
 		gas: 5500000,
-	  }
+		gasPrice: 1000000000,
+		confirmations: 2,
+		timeoutBlocks: 200,
+		skipDryRun: true,
+		}
 	},
   
 	// Set default mocha options here, use special reporters etc.
@@ -29,6 +34,7 @@ module.exports = {
 	  // timeout: 100000
 	},
   
+	
 	// Configure your compilers
 	compilers: {
 	  solc: {
