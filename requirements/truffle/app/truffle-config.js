@@ -14,6 +14,8 @@ module.exports = {
 	  development: {
 	   host: host,
 	   port: port,
+	   gas: 5500000,
+	   gasPrice: 1000000000,
 	   network_id: "*",
 	  },
 
