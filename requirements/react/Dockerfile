@@ -4,7 +4,7 @@ EXPOSE 3000
 
 RUN mkdir -p webapp
 ADD ./srcs /webapp
-WORKDIR /webapp
-RUN npm install
+ADD ./conf/react-config.sh /
+RUN chmod +x react-config.sh
 
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT [ "bash", "react-config.sh" ]
