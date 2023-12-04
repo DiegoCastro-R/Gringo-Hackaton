@@ -18,13 +18,15 @@ contract CheckPermission {
 		owner = msg.sender;
 	}
 
-	function checkPermission(address to) public view returns (bool) {
-		if (participants[to].hasPermission == false) {
-			return false;
-		}
-		if (msg.sender == owner) {
+	function checkPermission(address from, address to) public view returns (bool) {
+		if (from == owner && to == address(0)) {
 			return true;
-		} else if (participants[msg.sender].hasPermission == false) {
+		} else if (to == owner && from == address(0)) {
+			return true;
+		}
+		if (owner != to && participants[to].hasPermission == false) {
+			return false;
+		} else if (from != owner && participants[from].hasPermission == false) {
 			return false;
 		}
 		return true;
