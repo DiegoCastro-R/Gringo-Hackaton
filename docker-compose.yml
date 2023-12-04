@@ -24,7 +24,7 @@ services:
       DEV_PORT: "${DEV_PORT}"
       TEST_NETWORK: "${TEST_NETWORK}"
     volumes:
-      - truffle-volumes:/myproject
+      - truffle-volumes:/myproject/app
     secrets:
       - secrets_env
     networks:

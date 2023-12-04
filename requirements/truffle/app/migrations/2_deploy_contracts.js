@@ -5,6 +5,6 @@ module.exports = async function(deployer) {
   await deployer.deploy(CheckPermission);
   const name = "Titulo";
   const signal = "TP";
-  const addr = await CheckPermission.deployed();
-  await deployer.deploy(Titulo, name, signal, addr.address);
+  await CheckPermission.deployed();
+  const ownerInstanceTitulo = await deployer.deploy(Titulo, name, signal, addr.address);
 };
