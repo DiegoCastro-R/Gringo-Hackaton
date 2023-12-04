@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import ForeignerPage from "./pages/foreigner";
-import HeaderComponent from './components/header'
+import HeaderComponent from './components/header_auth'
 import { HeaderContainer } from "./components/header/styles";
 import Home from './pages/home'
 
