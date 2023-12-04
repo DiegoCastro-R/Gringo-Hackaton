@@ -14,6 +14,8 @@ module.exports = {
 	  development: {
 	   host: host,
 	   port: port,
+	   gas: 5500000,
+	   gasPrice: 1000000000,
 	   network_id: "*",
 	  },
 
@@ -38,7 +40,7 @@ module.exports = {
 	// Configure your compilers
 	compilers: {
 	  solc: {
-		version: "0.8.13",      // Fetch exact version from solc-bin
+		version: "0.8.20",      // Fetch exact version from solc-bin
 	  }
 	}
   };

@@ -70,7 +70,7 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./volumes/truffle
+      device: ./requirements/truffle/app
 
   ganache-volume:
     driver: local
