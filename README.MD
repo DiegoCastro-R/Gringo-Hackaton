@@ -144,4 +144,23 @@ DEV_PORT="<port expose on ganache docker-compose>"
 TEST_NETWORK="<network for migrate>" // (development or goerli)
 ```
 
+
+
+
+### Contratos na TestNet
+
+- **TokenSwap:**
+  - Contrato: [TokenSwap](https://etherscan.io/address/0xC58De3286e93727291342D4137Ce6159e3dbeF76)
+
+- **DREX:**
+  - Contrato: [DREX](https://etherscan.io/address/0x35BD954a6fd763ce7B34C9C98b721163775b4750)
+
+- **CheckPermission:**
+  - Contrato: [CheckPermission](https://etherscan.io/address/0x9A2157f81f45D59AbB459d4d8A01A2014Ac58b06)
+
+- **Titulo:**
+  - Contrato: [Titulo](https://etherscan.io/address/0x91DaBe52Eb11678c705b78120b3329C9D631435a)
+
+
+
 Certifique-se de preencher as informações necessárias nas variáveis antes de iniciar o desenvolvimento ou implantar o projeto.
