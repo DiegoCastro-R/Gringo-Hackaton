@@ -40,7 +40,7 @@ ref: https://trufflesuite.com/docs/truffle/quickstart/
 
 		/* Endereço do contrato */
 		TITULO_CONTRACT_ADDRESS=<address>
-		CHECKPERMISSION_CONTRACT_ADDRESS=<address>
+		CHECK_PERMISSION_CONTRACT_ADDRESS=<address>
 		DREX_CONTRACT_ADDRESS=<address>
 
 ### Variaveis do truffle:
