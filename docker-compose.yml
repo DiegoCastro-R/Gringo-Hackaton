@@ -24,7 +24,7 @@ services:
       DEV_PORT: "${DEV_PORT}"
       TEST_NETWORK: "${TEST_NETWORK}"
     volumes:
-      - truffle-volumes:/myproject
+      - truffle-volumes:/myproject/app
     secrets:
       - secrets_env
     networks:
@@ -52,7 +52,9 @@ services:
     build: 
       context: requirements/react
     environment:
-      CONTRACT_ADDRESS: "${CONTRACT_ADDRESS}"
+      TITULO_CONTRACT_ADDRESS: "${TITULO_CONTRACT_ADDRESS}"
+      CHECK_PERMISSION_CONTRACT_ADDRESS: "${CHECK_PERMISSION_CONTRACT_ADDRESS}"
+      DREX_CONTRACT_ADDRESS: "${DREX_CONTRACT_ADDRESS}"
     networks:
       - backend
     ports:

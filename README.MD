@@ -39,7 +39,9 @@ ref: https://trufflesuite.com/docs/truffle/quickstart/
 ### Variaveis do React:
 
 		/* Endereço do contrato */
-		CONTRACT_ADDRESS=<Contract Address>
+		TITULO_CONTRACT_ADDRESS=<address>
+		CHECK_PERMISSION_CONTRACT_ADDRESS=<address>
+		DREX_CONTRACT_ADDRESS=<address>
 
 ### Variaveis do truffle:
 
@@ -56,3 +58,33 @@ ref: https://trufflesuite.com/docs/truffle/quickstart/
 
 		# Config deploy net
 		TEST_NETWORK="<network for migrate>" // (development or goerli)
+
+### Contratos TestNet
+
+		Deploying 'TokenSwap'
+		---------------------
+		> contract address:    0xC58De3286e93727291342D4137Ce6159e3dbeF76
+
+		Linking
+		-------
+		* Contract: DREX <--> Library: TokenSwap (at address: 0xC58De3286e93727291342D4137Ce6159e3dbeF76)
+
+		Deploying 'DREX'
+		----------------
+		> contract address:    0x35BD954a6fd763ce7B34C9C98b721163775b4750
+
+		Linking
+		-------
+		* Contract: Titulo <--> Library: TokenSwap (at address: 0xC58De3286e93727291342D4137Ce6159e3dbeF76)
+
+		Replacing 'CheckPermission'
+		---------------------------
+		> contract address:    0x9A2157f81f45D59AbB459d4d8A01A2014Ac58b06
+
+		Replacing 'Titulo'
+		------------------
+		> contract address:    0xF2568936b4dED433E07ce6fA4C8C38bcDDe43e4F
+
+		Replacing 'Titulo'
+		------------------
+		> contract address:    0x91DaBe52Eb11678c705b78120b3329C9D631435a

@@ -3,22 +3,19 @@ pragma solidity ^0.8.13;
 
 import { ERC20 } from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "./CheckPermission.sol";
 import "./SwapTokens.sol";
-import "./utils.sol";
 
-contract Titulo is ERC20 {
+contract DREX is ERC20 {
 	address private 					_owner;
-	TituloInformation private			_TFPi;
 
 	/**
 	* @dev set {name} and {symbol} of token. Set contract for check Permission.
 	*/
 	constructor(
-		TituloInformation memory tInfo
-	) ERC20(tInfo._name, tInfo._symbol) {
+		string memory _name,
+		string memory _symbol
+	) ERC20(_name, _symbol) {
 		_owner = msg.sender;
-		_TFPi = tInfo;
 	}
 
 	function name() public view override returns (string memory) {
@@ -30,7 +27,7 @@ contract Titulo is ERC20 {
 	}
 
 	function decimals() public view override returns (uint8) {
-		return _TFPi._fractionsOfToken;
+		return 2;
 	}
 
 	function totalSupply() public view override returns (uint256) {
@@ -55,7 +52,6 @@ contract Titulo is ERC20 {
 	}
 
 	function approve(address spender, uint256 value) public override returns (bool) {
-		require(interactWithCheckPermission(msg.sender, spender) == true);
 		return super.approve(spender, value);
 	}
 
@@ -64,29 +60,12 @@ contract Titulo is ERC20 {
 	}
 
 	function _update(address from, address to, uint256 value) internal override {
-		if (interactWithCheckPermission(from, to) == true) {
-			super._update(from, to, value);
-		} else {
-			revert PermissionFail(from, to);
-		}
+		super._update(from, to, value);
 	}
 
 	function burn(address to, uint256 value) public {
 		require(msg.sender == _owner);
 		super._burn(to, value);
-	}
-
-	function interactWithCheckPermission(address from, address to) private view returns (bool) {
-		CheckPermission cp = CheckPermission(_TFPi._checkKey);
-		return cp.checkPermission(from, to);
-	}
-
-	function automaticRedemption() public {
-		require(block.timestamp >= _TFPi._payDay);
-		IERC20 t1 = IERC20(_TFPi._drex);
-		IERC20 t2 = IERC20(msg.sender);
-		require(TokenSwap.approveTokens(t1, t2, balanceOf(msg.sender)));
-		require(TokenSwap.swap(t1, t2, balanceOf(msg.sender)));
 	}
 
 	function swapTokens(IERC20 t1, IERC20 t2, uint256 amount) public {
