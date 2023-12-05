@@ -16,6 +16,7 @@ contract CheckPermission {
 
 	constructor () {
 		owner = msg.sender;
+		participants[address(0)] = Identity(0, true);
 	}
 
 	function checkPermission(address from, address to) public view returns (bool) {
@@ -27,7 +28,7 @@ contract CheckPermission {
 		if (owner != to && participants[to].hasPermission == false) {
 			return false;
 		} else if (from != owner && participants[from].hasPermission == false) {
-			return false;
+		 	return false;
 		}
 		return true;
 	}

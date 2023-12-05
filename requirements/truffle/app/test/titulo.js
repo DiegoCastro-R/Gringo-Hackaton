@@ -50,4 +50,15 @@ contract('Titulo', (accounts) => {
 		assert.equal(balanceOwner, 30000, "valor em conta 0 nao condiz");
 		assert.equal(supply, 30000, "valor total de tokens nao condiz");
 	})
+	it('Test mint tokens for account 5', async () => {
+		await ownerInstanceTitulo.mint(accounts[5], 6000);
+
+		const balanceAccount5 = await ownerInstanceTitulo.balanceOf(accounts[5]);
+		const balanceOwner = await ownerInstanceTitulo.balanceOf(accounts[0]);
+		const supply = await ownerInstanceTitulo.totalSupply();
+
+		assert.equal(balanceAccount5, 6000, "valor em conta 5 nao condiz");
+		assert.equal(balanceOwner, 30000, "valor em conta 0 nao condiz");
+		assert.equal(supply, 36000, "valor total de tokens nao condiz");
+	})
 })
