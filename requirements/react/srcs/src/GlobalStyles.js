@@ -1,14 +1,15 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const colors = {
-    primary: '#0C326F',
-    secondary: '#1351B4',
-    background: '#F3F3F3',
-    accent: '#FFC914',
-    success: '#1B8231',
-    darkBackground: 'black',
-    buttonBackground: '#216E1F',
-    white: 'white',
+  primary: '#0C326F',
+  secondary: '#1351B4',
+  background: '#F3F3F3',
+  accent: '#FFC914',
+  success: '#1B8231',
+  darkBackground: 'black',
+  buttonBackground: '#216E1F',
+  white: 'white',
+  textGrey: '#555'
 };
 
 export const GlobalStyle = createGlobalStyle`
