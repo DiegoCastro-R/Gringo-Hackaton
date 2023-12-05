@@ -39,7 +39,9 @@ ref: https://trufflesuite.com/docs/truffle/quickstart/
 ### Variaveis do React:
 
 		/* Endereço do contrato */
-		CONTRACT_ADDRESS=<Contract Address>
+		TITULO_CONTRACT_ADDRESS=<address>
+		CHECKPERMISSION_CONTRACT_ADDRESS=<address>
+		DREX_CONTRACT_ADDRESS=<address>
 
 ### Variaveis do truffle:
 
@@ -56,3 +58,4 @@ ref: https://trufflesuite.com/docs/truffle/quickstart/
 
 		# Config deploy net
 		TEST_NETWORK="<network for migrate>" // (development or goerli)
+
